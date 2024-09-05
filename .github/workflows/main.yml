@@ -30,8 +30,8 @@ jobs:
           tags: |
             anukool98/hello-anukool-flask:latest
             anukool98/hello-anukool-flask:${{ github.sha }}
-            # Optionally, you can add version tags if you use Git tags, e.g.,
-            # anukool98/hello-anukool-flask:${{ github.ref_name }}
+            
+            anukool98/hello-anukool-flask:${{ github.ref_name }}
 
       - name: Log out from Docker Hub
         run: docker logout
