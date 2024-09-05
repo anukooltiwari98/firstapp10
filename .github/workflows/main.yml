@@ -33,7 +33,6 @@ jobs:
             anukool98/hello-anukool-flask:latest
             anukool98/hello-anukool-flask:${{ github.sha }}
             anukool98/hello-anukool-flask:${{ github.run_id }}
-            anukool98/hello-anukool-flask:$(date +%Y%m%d%H%M%S)
           cache-from: type=registry,ref=anukool98/hello-anukool-flask:cache
           cache-to: type=registry,ref=anukool98/hello-anukool-flask:cache,mode=max
 
