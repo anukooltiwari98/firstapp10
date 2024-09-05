@@ -30,7 +30,6 @@ jobs:
           context: .
           push: true
           tags: |
-            anukool98/hello-anukool-flask:latest
             anukool98/hello-anukool-flask:${{ github.sha }}
             anukool98/hello-anukool-flask:${{ github.run_id }}
           cache-from: type=registry,ref=anukool98/hello-anukool-flask:cache
