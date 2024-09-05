@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - main
+    tags:
+      - 'v*.*.*'  # This matches version tags like v1.0.0
 
 jobs:
   build:
@@ -11,7 +13,7 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3 # Note: Monitor for updates to Node.js 20
+        uses: actions/checkout@v3
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
@@ -27,7 +29,10 @@ jobs:
         with:
           context: .
           push: true
-          tags: anukool98/hello-anukool-flask:latest
+          tags: |
+            anukool98/hello-anukool-flask:latest
+            anukool98/hello-anukool-flask:${{ github.sha }}
+            anukool98/hello-anukool-flask:${{ github.ref_name }} # This uses the tag or branch name
 
       - name: Log out from Docker Hub
         run: docker logout
